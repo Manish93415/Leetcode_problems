@@ -18,11 +18,9 @@ public:
         int i=0,j=0,k=0;
         while(k<nums.size()){
             nums[k]=positive[i];
-            i++;
-            k++;
+            i++,k++;
             nums[k]=negative[j];
-            j++;
-            k++;
+            j++,k++;
             
         }
 
