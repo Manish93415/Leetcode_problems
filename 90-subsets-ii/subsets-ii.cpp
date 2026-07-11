@@ -6,12 +6,15 @@ public:
             ans.push_back(temp);
             return;
         }
+        // include
         temp.push_back(nums[index]);
         find(nums,ans,temp,index+1);
+        // backtrack
         temp.pop_back();
 
+        // exclude
         int i=index+1;
-        while(i<nums.size() && nums[i]==nums[i-1]){
+        while(i<nums.size() && nums[i]==nums[i-1]){  // check dupplicates
             i++;
         }
         find(nums,ans,temp,i);
@@ -20,9 +23,8 @@ public:
 
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
         sort(nums.begin(), nums.end()); 
-        // set<vector<int>>fake;
-        vector<vector<int>> ans;
-        vector<int> temp;
+        vector<vector<int>> ans;  //store all subsets
+        vector<int> temp;         //store subset
         int i=0;
         find(nums,ans,temp,i);
         
