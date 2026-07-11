@@ -22,7 +22,7 @@ public:
 
     vector<vector<int>> subsets(vector<int>& nums) {
         vector<vector<int>> ans; // stores all subsets 
-        vector<int> temp;  // stores current subset
+        vector<int> temp;  // stores current subsets
 
         find(nums, temp, ans, 0);
 
