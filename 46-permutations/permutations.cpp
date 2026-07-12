@@ -8,7 +8,7 @@ public:
         for(int i=idx;i<nums.size();i++){
             swap(nums[idx],nums[i]);
             permutation(nums,ans,idx+1);
-            swap(nums[idx],nums[i]);
+            swap(nums[idx],nums[i]); //backtrack
         }
     }
 
