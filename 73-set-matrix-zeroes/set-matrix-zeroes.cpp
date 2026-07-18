@@ -1,31 +1,33 @@
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
-        int n=matrix[0].size();
-        int m=matrix.size();
-        vector<pair<int,int>>findzero;
-        for(int i=0;i<m;i++){
-            for(int j=0;j<n;j++){
-                if(matrix[i][j]==0){
-                    findzero.push_back({i,j});
+        int m = matrix.size();
+        int n = matrix[0].size();
+
+        bool firstColZero = false;
+
+        for (int i = 0; i < m; i++) {
+
+            if (matrix[i][0] == 0)
+                firstColZero = true;
+
+            for (int j = 1; j < n; j++) {
+                if (matrix[i][j] == 0) {
+                    matrix[i][0] = 0;   
+                    matrix[0][j] = 0;   
                 }
             }
         }
 
-        for (auto p : findzero) {
-            int row = p.first;
-            int col = p.second;
+        for (int i = m - 1; i >= 0; i--) {
+            for (int j = n - 1; j >= 1; j--) {
 
-            for (int j = 0; j < n; j++)
-                matrix[row][j] = 0;
-
-            for (int i = 0; i < m; i++)
-                matrix[i][col] = 0;
-        }
-        for(int i=0;i<m;i++){
-            for(int j=0;j<n;j++){
-                cout<<matrix[i][j];
+                if (matrix[i][0] == 0 || matrix[0][j] == 0)
+                    matrix[i][j] = 0;
             }
+
+            if (firstColZero)
+                matrix[i][0] = 0;
         }
     }
 };
