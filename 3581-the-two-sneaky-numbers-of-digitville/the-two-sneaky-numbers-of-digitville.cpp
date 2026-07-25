@@ -5,12 +5,10 @@ public:
         for(int i:nums){
             freq[i]++;
         }
-        int j=0;
-        vector<int>ans(2);
+        vector<int>ans;
         for(auto it:freq){
             if(it.second==2){
-                ans[j]=it.first;
-                j++;
+                ans.push_back(it.first);
             }
         }
         return ans;
