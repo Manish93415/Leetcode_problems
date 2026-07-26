@@ -1,21 +1,18 @@
 class Solution {
 public:
     int maxProduct(int n) {
-        vector<int>digitarr;
+        vector<int>nums;
         while (n > 0) {
             int digit = n % 10;
-            digitarr.push_back(digit);
+            nums.push_back(digit);
             n /= 10;
         }
 
-        int firstmax = *max_element(digitarr.begin(), digitarr.end());                                              auto it = find(digitarr.begin(), digitarr.end(), firstmax);
+       sort(nums.begin(), nums.end());
 
-        if (it != digitarr.end()) {
-            digitarr.erase(it);
-        }
+        int num = nums.size();
 
-        int secondmax= *max_element(digitarr.begin(),digitarr.end());
-        int maxmul=firstmax*secondmax;
-        return maxmul;
+        int case1 = nums[num-1] * nums[num-2] ;
+        return case1;
     }
 };
